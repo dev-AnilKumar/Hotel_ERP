@@ -1,8 +1,17 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home';
+import "./App.css"
 
 const App = () => {
   return (
-    <div>App</div>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      {/* <Route path="/hotels" element={<Hotels />} />
+      <Route path="/hotel/:id" element={<HotelDetails />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/booking/:hotelId" element={<Booking />} /> */}
+    </Routes>
   )
 }
 
