@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
 import { useNavigate } from 'react-router-dom';
 
-const ReqScreen = () => {
+const WeddingBooking = () => {
 
     const navigate = useNavigate();
 
@@ -194,4 +194,4 @@ const ReqScreen = () => {
     );
 }
 
-export default ReqScreen;
+export default WeddingBooking;
