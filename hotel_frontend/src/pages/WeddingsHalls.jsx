@@ -13,7 +13,8 @@ const WeddingHalls = ({ loading, error,
         imgSrc: "",
         _id: "2",
         wedHallName: "Royal Hall",
-        capacity: "120"
+        maxCapacity: "900",
+        seating:"600"
 
     }
     return (

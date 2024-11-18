@@ -15,7 +15,7 @@ const WeddingVenueCard = ({ wedding }) => {
                 <div className="text-center">
                     <Link to={`/restaurant/${wedding._id}`}>
                         <h1 className="text-xl font-semibold text-gray-900">{wedding.wedHallName}</h1>
-                        <h6 className="text-md text-gray-600 mt-2">Maximum Seating: {wedding.capacity} Seats</h6>
+                        <h6 className="text-md text-gray-600 mt-2">Seating:{wedding.seating}, Max Capacity:{wedding.maxCapacity} Seats</h6>
                     </Link>
                 </div>
             </div>
