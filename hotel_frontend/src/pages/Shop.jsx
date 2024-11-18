@@ -6,12 +6,27 @@ const Shop = ({ loading, error, foods }) => {
         imgSrc: "",
         _id: "1",
         itemName: "Angel Conference Room",
-        confRoomSeats: "10",
         itemPrice: "5000",
-        features: "",
+        category: "Mobile",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quam magni aperiam, qui voluptatibus esse modi labore soluta eos iure dolore quas maxime nesciunt commodi dolores quis officia laborum itaque!",
     },
-    ]
+    {
+        imgSrc: "",
+        _id: "1",
+        itemName: "Angel Conference Room",
+        itemPrice: "5000",
+        category: "Mobile",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quam magni aperiam, qui voluptatibus esse modi labore soluta eos iure dolore quas maxime nesciunt commodi dolores quis officia laborum itaque!",
+    },
+    {
+        imgSrc: "",
+        _id: "1",
+        itemName: "Angel Conference Room",
+        itemPrice: "5000",
+        category: "Mobile",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quam magni aperiam, qui voluptatibus esse modi labore soluta eos iure dolore quas maxime nesciunt commodi dolores quis officia laborum itaque!",
+    }];
+
     return (
         <div className="p-6">
             <h1 className="text-center text-3xl font-semibold mb-6">MENU</h1>
