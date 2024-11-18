@@ -4,16 +4,21 @@ import Home from './pages/Home';
 import "./App.css"
 import Hotels from './pages/Hotels';
 import HotelProfile from './pages/HotelProfile';
+import Navbar from './components/Navbar';
+import LandingScreen from './pages/LandingPage';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path="/hotels" element={<Hotels />} />
-      <Route path="/hotel/:id" element={<HotelProfile />} />
-      {/* <Route path="/profile" element={<Profile />} />
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<LandingScreen />} />
+        <Route path="/hotels" element={<Hotels />} />
+        <Route path="/hotel/:id" element={<HotelProfile />} />
+        {/* <Route path="/profile" element={<Profile />} />
       <Route path="/booking/:hotelId" element={<Booking />} /> */}
-    </Routes>
+      </Routes>
+    </>
   )
 }
 
