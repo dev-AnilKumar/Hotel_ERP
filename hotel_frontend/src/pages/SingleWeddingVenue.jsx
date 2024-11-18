@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
 
-const SingleWeddingVenue = ({ }) => {
-    const wedding = {
-        imgSrc: "",
-        _id: "2",
-        wedHallName: "Royal Hall",
-        maxCapacity: "900",
-        seating: "600",
-        description: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quam magni aperiam, qui voluptatibus esse modi labore soluta eos iure dolore quas maxime nesciunt commodi dolores quis officia laborum itaque!"
-    }
+const SingleWeddingVenue = ({ wedding }) => {
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
             {/* Left Column */}

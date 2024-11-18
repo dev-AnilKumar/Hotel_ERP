@@ -9,14 +9,18 @@ const ConferenceRooms = ({
         _id: "1",
         confRoomName: "Angel Conference Room",
         confRoomSeats: "10",
-        confRoomPrice: "5000"
+        confRoomPrice: "5000",
+        features: "",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quam magni aperiam, qui voluptatibus esse modi labore soluta eos iure dolore quas maxime nesciunt commodi dolores quis officia laborum itaque!",
     },
     {
         imgSrc: "",
         _id: "2",
         confRoomName: "Arya Conference Room",
         confRoomSeats: "12",
-        confRoomPrice: "7000"
+        confRoomPrice: "9000",
+        features: "",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quam magni aperiam, qui voluptatibus esse modi labore soluta eos iure dolore quas maxime nesciunt commodi dolores quis officia laborum itaque!",
     }]
     return (
         <div className="container mx-auto py-8">
