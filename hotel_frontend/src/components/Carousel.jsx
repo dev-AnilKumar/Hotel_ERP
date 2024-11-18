@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,14 +7,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './styles.css';
-
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 
-const Carousel = () => {
+export default function App() {
     return (
-        <>
+        <div className="relative w-full h-full">
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -27,19 +25,31 @@ const Carousel = () => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper w-full h-full"
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                <SwiperSlide className="flex justify-center items-center bg-white text-center text-lg">
+                    <img
+                        src="https://via.placeholder.com/800x400"
+                        alt="Slide 1"
+                        className="w-full h-full object-cover"
+                    />
+                </SwiperSlide>
+                <SwiperSlide className="flex justify-center items-center bg-white text-center text-lg">
+                    <img
+                        src="https://via.placeholder.com/800x400"
+                        alt="Slide 2"
+                        className="w-full h-full object-cover"
+                    />
+                </SwiperSlide>
+                <SwiperSlide className="flex justify-center items-center bg-white text-center text-lg">
+                    <img
+                        src="https://via.placeholder.com/800x400"
+                        alt="Slide 3"
+                        className="w-full h-full object-cover"
+                    />
+                </SwiperSlide>
+                {/* Additional slides */}
             </Swiper>
-        </>
+        </div>
     );
 }
-export default Carousel;
