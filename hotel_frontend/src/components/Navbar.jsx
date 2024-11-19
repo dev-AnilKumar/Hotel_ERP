@@ -61,6 +61,7 @@ const Navbar = () => {
                                     <Link
                                         to="/wedding-halls"
                                         className="block px-4 py-2 hover:bg-gray-700"
+                                        onClick={toggleDropdown}
                                     >
                                         Wedding Planning
                                     </Link>
@@ -69,6 +70,7 @@ const Navbar = () => {
                                     <Link
                                         to="/conference-rooms"
                                         className="block px-4 py-2 hover:bg-gray-700"
+                                        onClick={toggleDropdown}
                                     >
                                         Meetings
                                     </Link>

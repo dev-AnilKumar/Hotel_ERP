@@ -34,7 +34,7 @@ const WeddingHalls = ({ loading, error,
             ) : ( */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {/* {weddings.map((wedding) => ( */}
-                <div key={wedding._id} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div key={wedding._id}>
                     <WeddingVenueCard wedding={wedding} />
                 </div>
                 {/* ))} */}

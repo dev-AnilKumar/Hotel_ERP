@@ -1,21 +1,21 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
+import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
-
 const WeddingBooking = () => {
 
     const navigate = useNavigate();
 
     function submitHandler(e) {
         e.preventDefault();
-        emailjs.sendForm('service_vyyqvva', 'template_bsij832', e.target, 'user_L6uy9056Ba6ttSNKMXklQ')
-            .then(res => {
-                console.log(res);
-                Swal.fire('Successful', 'Form Has Been Submitted, We’ll get back to you soon', 'success').then(result => {
-                    navigate("/");
-                });
-            }).catch(err => console.log(err));
+        // emailjs.sendForm('service_vyyqvva', 'template_bsij832', e.target, 'user_L6uy9056Ba6ttSNKMXklQ')
+        //     .then(res => {
+        //         console.log(res);
+        //         Swal.fire('Successful', 'Form Has Been Submitted, We’ll get back to you soon', 'success').then(result => {
+        //             navigate("/");
+        //         });
+        //     }).catch(err => console.log(err));
     }
 
     return (
@@ -33,6 +33,17 @@ const WeddingBooking = () => {
                     <h4 className="text-xl font-semibold text-gray-800 mb-4">Contact Information</h4>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <TextField
+                            size="small"
+                            required
+                            // error
+                            id="outlined-error-helper-text"
+                            label="First Name"
+                            // defaultValue="Hello World"
+                            // helperText="Incorrect entry."
+                            color="success & warning"
+                            focused
+                        />
                         <div>
                             <label htmlFor="sName" className="block text-sm font-medium text-gray-700">Family Name/Surname</label>
                             <input type="text" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" id="sName" name="sName" />
@@ -123,7 +134,7 @@ const WeddingBooking = () => {
                         <label htmlFor="evName" className="block text-sm font-medium text-gray-700">Event Name</label>
                         <input type="text" className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" id="evName" name="evName" />
                     </div>
-
+                    
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label htmlFor="sDate" className="block text-sm font-medium text-gray-700">Event Start</label>
