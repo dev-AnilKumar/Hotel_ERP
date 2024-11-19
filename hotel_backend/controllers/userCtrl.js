@@ -27,8 +27,9 @@ const loginUser = async (req, res) => {
             );
 
             res.cookie("refreshToken", refreshToken, {
-                httpsOnly: true,
+                httpOnly: true,
                 secure: true,
+                signed: true,
                 maxAge: 3 * 24 * 60 * 60 * 1000
             })
 
@@ -37,7 +38,8 @@ const loginUser = async (req, res) => {
                     name: updateduser?.name,
                     isAdmin: updateduser?.isAdmin,
                     accessToken: generateToken({ id: findUser._id, time: "15m" }),
-                }, success: true
+                },
+                success: true
             });
         }
         else {
@@ -47,3 +49,52 @@ const loginUser = async (req, res) => {
         res.json({ msg: error.message, success: false });
     }
 }
+
+
+const getUserProfile = async () => {
+    const { id } = req.params;
+    try {
+        const user = await UserModel.findById(id).select("-password", "-refreshToken");
+        if (user) {
+            res.json(user, { success: true });
+        } else {
+            throw new Error("User Not Found");
+        }
+    } catch (error) {
+        res.json({ msg: error.message, success: false });
+    }
+}
+
+
+const logoutUser = async () => {
+    const cookie = req.cookie;
+    try {
+        if (!cookie?.refreshToken) throw new Error("No refresh Token in cookies");
+        const refreshToken = cookie?.refreshToken;
+        const user = await UserModel.find({ refreshToken });
+        if (!user) {
+            res.clearCookie("refreshToken", {
+                httpOnly: true,
+                secure: true,
+                signed: true,
+                maxAge: 0
+            })
+            res.sendStatus(204);
+        };
+        await UserModel.findByIdAndUpdate({ id: user._id }, {
+            refreshToken: "",
+        });
+        res.clearCookie("refreshToken", {
+            httpOnly: true,
+            secure: true,
+            signed: true,
+            maxAge: 0
+        })
+        res.json({ success: true });
+
+    } catch (error) {
+        res.json({ msg: error.message, success: false });
+    }
+}
+
+module.exports = { registerUser, loginUser, logoutUser, getUserProfile }
