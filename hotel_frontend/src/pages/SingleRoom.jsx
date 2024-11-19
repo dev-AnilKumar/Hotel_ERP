@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SingleRoom = () => {
+const SingleRoom = ({ rooms }) => {
     return (
         <>
             {/* {loading ? (
