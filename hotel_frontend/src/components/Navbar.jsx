@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
+import { TiArrowSortedDown } from "react-icons/ti";
+import { TiArrowSortedUp } from "react-icons/ti";
 
 const Navbar = () => {
     // const userInfo={
     //     name:"anil",
     //     isAdmin:"false"
     // }
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Toggle the dropdown visibility
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
     const userInfo = null;
     return (
         <nav className="bg-gray-900 py-3 px-8 fixed top-0 left-0 z-[999] w-full">
@@ -17,34 +26,58 @@ const Navbar = () => {
                 </a>
 
                 <div className="flex justify-center">
-                    <ul className="flex gap-6">
+                    <ul className="flex gap-8">
                         <li className="nav-item">
                             <Link to="/rooms" className="text-white hover:text-gray-400 font-semibold">
-                                ROOMS & SUITES
+                                Rooms & Suites
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/restaurants" className="text-white hover:text-gray-400 font-semibold" >
-                                RESTAURANTS & BARS
+                                Restaurant & Bars
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/foods" className="text-white hover:text-gray-400 font-semibold" >
-                                TAKE & DELIVERY
+                            <Link to="/shop" className="text-white hover:text-gray-400 font-semibold" >
+                                Shop
                             </Link>
                         </li>
                         <li className="nav-item relative">
-                            <button className="text-white hover:text-gray-400 font-semibold">
-                                WEDDING & EVENTS
+                            {/* Button to trigger dropdown */}
+                            <button
+                                onClick={toggleDropdown}
+                                className="text-white flex gap-1 items-center hover:text-gray-400 font-semibold"
+                            >
+                                Wedding & Events {isOpen ? <TiArrowSortedUp /> : <TiArrowSortedDown />}
                             </button>
-                            <ul className="dropdown-menu absolute hidden bg-[#282828] text-white rounded-md shadow-md">
-                                <li><Link to="/weddings" className="block px-4 py-2 hover:bg-gray-700">WEDDINGS PLANNING</Link></li>
-                                <li><Link to="/conference" className="block px-4 py-2 hover:bg-gray-700">MEETINGS</Link></li>
+
+                            {/* Dropdown menu with smooth animations */}
+                            <ul
+                                className={`${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                                    } transition-all duration-300 ease-in-out absolute left-0 bg-[#282828] text-white rounded-md shadow-md mt-2 w-48`}
+                                style={{ display: isOpen ? 'block' : 'none' }}
+                            >
+                                <li>
+                                    <Link
+                                        to="/wedding-halls"
+                                        className="block px-4 py-2 hover:bg-gray-700"
+                                    >
+                                        Wedding Planning
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/conference-rooms"
+                                        className="block px-4 py-2 hover:bg-gray-700"
+                                    >
+                                        Meetings
+                                    </Link>
+                                </li>
                             </ul>
                         </li>
                         <li className="nav-item">
                             <Link to="/about" className="text-white hover:text-gray-400 font-semibold" >
-                                ABOUT
+                                About
                             </Link>
                         </li>
                     </ul>

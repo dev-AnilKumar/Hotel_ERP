@@ -13,7 +13,7 @@ const LandingScreen = () => {
                         <h1 className="text-2xl md:text-4xl mb-8" data-aos="zoom-out">
                             “There is only one boss. The Guest.”
                         </h1>
-                        <Link to="/home">
+                        <Link to="/rooms">
                             <button className="px-6 py-2 text-lg border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-md transition duration-300">
                                 Get Started
                             </button>
