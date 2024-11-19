@@ -18,7 +18,7 @@ const Navbar = () => {
 
     const userInfo = null;
     return (
-        <nav className="bg-gray-900 py-3 px-8 fixed top-0 left-0 z-[999] w-full">
+        <nav className="bg-gray-900 py-3 px-8 static top-0 left-0 z-[999] w-full">
             <div className="container mx-auto flex items-center justify-between">
                 <a className="text-white flex items-center" href="/">
                     {/* <img src="" alt="Grand Hotel" className="w-24 h-10" /> */}
@@ -54,7 +54,7 @@ const Navbar = () => {
                             {/* Dropdown menu with smooth animations */}
                             <ul
                                 className={`${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-                                    } transition-all duration-300 ease-in-out absolute left-0 bg-[#282828] text-white rounded-md shadow-md mt-2 w-48`}
+                                    } transition-all duration-300 ease-in-out absolute left-0 bg-[#282828] text-white rounded-md shadow-md mt-2 w-48 z-[998]`}
                                 style={{ display: isOpen ? 'block' : 'none' }}
                             >
                                 <li>
@@ -87,7 +87,7 @@ const Navbar = () => {
 
 
                 <div className="hidden lg:flex space-x-6">
-                    <Link to="/cart" className="text-white flex gap-2 items-center hover:text-gray-400">
+                    <Link to="/shopping-cart" className="text-white flex gap-2 items-center hover:text-gray-400">
                         <FaCartShopping /> Cart
                     </Link>
                     {userInfo ? (

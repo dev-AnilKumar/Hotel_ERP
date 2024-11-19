@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ConferenceRoomCard = ({ conference }) => {
     return (
-        <Link to={`/con/${conference._id}`}>
+        <Link to={`/conference-rooms/${conference._id}`}>
             <div className="my-4 p-4 rounded-lg border border-gray-300 shadow-lg">
                 <img
                     className="w-full h-64 object-cover rounded-t-lg"

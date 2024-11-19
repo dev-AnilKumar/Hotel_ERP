@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
 // import Message from './Message'; // Assume your Message component exists
 
 const ShoppingCart = ({ cartItems, removeFromCartHandler, addToCart, checkoutHandler }) => {
@@ -12,15 +11,16 @@ const ShoppingCart = ({ cartItems, removeFromCartHandler, addToCart, checkoutHan
           {/* Left Column: Cart Items */}
           <div className="w-full md:w-2/3">
             <h1 className="text-3xl font-semibold mb-6">SHOPPING CART</h1>
-            {cartItems.length === 0 ? (
+            {cartItems?.length === 0 ? (
               <div>
-                Your cart is empty <Link to="/">Go Back</Link>
+                <p> Your cart is empty </p> <br />
+                <Link to="/">Go Back</Link>
               </div>
               // <Message>
               // </Message>
             ) : (
               <div className="space-y-6">
-                {cartItems.map((item) => (
+                {cartItems?.map((item) => (
                   <div key={item.food} className="flex items-center justify-between bg-white shadow-lg rounded-md p-4">
                     <div className="flex items-center space-x-4">
                       <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
@@ -36,14 +36,14 @@ const ShoppingCart = ({ cartItems, removeFromCartHandler, addToCart, checkoutHan
                         onChange={(e) => addToCart(item.food, Number(e.target.value))}
                         className="w-20 p-2 border rounded-md text-center"
                       />
-                      <Button
+                      <button
                         type="button"
                         variant="light"
                         onClick={() => removeFromCartHandler(item.food)}
                         className="text-red-500 hover:text-red-700"
                       >
                         <i className="fas fa-trash"></i>
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -57,25 +57,25 @@ const ShoppingCart = ({ cartItems, removeFromCartHandler, addToCart, checkoutHan
               <div className="mb-6">
                 <h2 className="text-xl font-semibold">
                   Subtotal (
-                  {cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                  {cartItems?.reduce((acc, item) => acc + item.qty, 0)})
                   items
                 </h2>
                 <h5 className="text-2xl font-bold">
                   LKR{" "}
                   {cartItems
-                    .reduce((acc, item) => acc + item.qty * item.price, 0)
+                    ?.reduce((acc, item) => acc + item.qty * item.price, 0)
                     .toFixed(2)}
                 </h5>
               </div>
               <div>
-                <Button
+                <button
                   type="button"
                   className="w-full py-2 text-lg text-white bg-yellow-400 hover:bg-yellow-500"
-                  disabled={cartItems.length === 0}
+                  disabled={cartItems?.length === 0}
                   onClick={checkoutHandler}
                 >
                   Proceed To Checkout
-                </Button>
+                </button>
               </div>
             </div>
           </div>

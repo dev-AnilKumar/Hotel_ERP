@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 
 const SingleConferenceRoom = ({ conference, loading, error }) => {
     const [hrs, setHrs] = useState(1);
+    // axios request for single wedding venue or from store 
+
     const handleBooking = () => {
         // Implement the booking logic
         Swal.fire('Booked!', 'Your conference room is booked.', 'success');
@@ -26,19 +28,19 @@ const SingleConferenceRoom = ({ conference, loading, error }) => {
                         <div>
                             <div className="mb-4">
                                 <h6 className="text-lg text-gray-500">Grand Hotel</h6>
-                                <h1 className="text-3xl font-bold">{conference.confRoomName}</h1>
+                                <h1 className="text-3xl font-bold">{conference?.confRoomName}</h1>
                             </div>
                             <hr />
                             <h6 className="mt-4 text-xl font-semibold">Amenities</h6>
                             <hr />
                             <h6 className="mt-4 text-xl font-semibold">Conference Room Description</h6>
-                            <p>{conference.description}</p>
+                            <p>{conference?.description}</p>
                             <h6 className="mt-4 text-xl font-semibold">Number of Seats</h6>
-                            <p>{conference.confRoomSeats} Seats</p>
+                            <p>{conference?.confRoomSeats} Seats</p>
                             <h6 className="mt-4 text-xl font-semibold">Conference Room Features</h6>
-                            <p>{conference.features}</p>
+                            <p>{conference?.features}</p>
                             <h6 className="mt-4 text-xl font-semibold">Price Per Hour</h6>
-                            <p>RS.{conference.confRoomPrice} Per Hour</p>
+                            <p>RS.{conference?.confRoomPrice} Per Hour</p>
                         </div>
 
                         {/* Right Column */}
@@ -68,7 +70,7 @@ const SingleConferenceRoom = ({ conference, loading, error }) => {
                                 </div>
                                 <div className="space-y-2">
                                     <h5 className="text-xl font-semibold">
-                                        Total Price: Rs.{conference.confRoomPrice * hrs}
+                                        Total Price: Rs.{conference?.confRoomPrice * hrs}
                                     </h5>
                                 </div>
                             </div>

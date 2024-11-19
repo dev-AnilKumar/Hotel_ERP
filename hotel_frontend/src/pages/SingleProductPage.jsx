@@ -13,18 +13,18 @@ const SingleProductPage = ({ loading, error, item, qty, setQty, addToCartHandler
                     {/* Left Section: Image and Description */}
                     <div className="w-full md:w-7/12">
                         <img
-                            src={item.imgSrc}
-                            alt={item.itemName}
+                            src={item?.imgSrc}
+                            alt={item?.itemName}
                             className="w-full h-auto rounded-md mb-6"
                         />
                         <div className="text-center mb-4">
                             <h6 className="text-gray-500">Shangri-La Colombo</h6>
-                            <h1 className="text-3xl font-semibold">{item.itemName}</h1>
+                            <h1 className="text-3xl font-semibold">{item?.itemName}</h1>
                         </div>
                         <hr className="my-4" />
-                        <h6 className="text-lg font-semibold">LKR {item.itemPrice}.00</h6>
+                        <h6 className="text-lg font-semibold">LKR {item?.itemPrice}.00</h6>
                         <h6 className="text-md font-medium mt-4">About the Item</h6>
-                        <p>{item.description}</p>
+                        <p>{item?.description}</p>
                     </div>
 
                     {/* Right Section: Add to Cart */}
@@ -33,11 +33,11 @@ const SingleProductPage = ({ loading, error, item, qty, setQty, addToCartHandler
                         <div className="bg-white shadow-lg rounded-md p-4">
                             <div className="flex justify-between mb-3">
                                 <span>Category:</span>
-                                <strong>{item.category}</strong>
+                                <strong>{item?.category}</strong>
                             </div>
                             <div className="flex justify-between mb-3">
                                 <span>Price:</span>
-                                <strong>LKR {item.itemPrice}.00</strong>
+                                <strong>LKR {item?.itemPrice}.00</strong>
                             </div>
                             <div className="flex justify-between mb-3">
                                 <span>Qty</span>
