@@ -6,7 +6,8 @@ const dbConnect = require('./config/dbConnect');
 dotenv.config();
 dbConnect();
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 8000;
+
 app.listen(PORT, () => {
     console.log(`server is running at ${PORT}`)
 });

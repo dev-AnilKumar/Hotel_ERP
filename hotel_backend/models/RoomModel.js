@@ -8,7 +8,7 @@ var RoomSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ["Deluxe", "Non-Deluxe", "Suite", "Family Room"],
+        enum: ["Deluxe", "Non-Deluxe", "Suite", "Family"],
         default: "Non-Deluxe",
     },
     maxCount: {
@@ -28,10 +28,25 @@ var RoomSchema = new mongoose.Schema({
     }],
     features: [{
         type: String
-    }]
+    }],
+    
 }, {
     timestamps: true
 });
 
 //Export the model
 module.exports = mongoose.model('Room', RoomSchema);
+
+// const room = await HotelRoom.findOne({
+//     roomNumber,
+//     'bookings.checkInDate': { $gte: currentDate } // Check if the booking is today or in the future
+//   });
+
+//   if (!room) {
+//     console.log('Room not found.');
+//     return;
+//   }
+
+//   const futureBookings = room.bookings.filter(booking => booking.checkInDate >= currentDate);
+//   console.log('Current and future bookings:', futureBookings);
+// }
