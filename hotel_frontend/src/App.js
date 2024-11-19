@@ -15,6 +15,10 @@ import SingleConferenceRoom from './pages/SingleConferenceRoom';
 import ShoppingCart from './pages/ShoppingCart';
 import Shop from './pages/Shop';
 import SingleProductPage from './pages/SingleProductPage';
+import RestaurantAndBars from './pages/RestaurantAndBars';
+import SingleRestaurant from './pages/SingleRestaurant';
+import Rooms from './pages/Rooms';
+import SingleRoom from './pages/SingleRoom';
 
 const App = () => {
   return (
@@ -37,8 +41,12 @@ const App = () => {
         <Route path="/shopping-cart" element={<ShoppingCart />} />
 
         {/* Restaurant and Bars */}
-        <Route path="/restaurants" element={<Shop />} />
-        <Route path="/restaurant/:id" element={<Shop />} />
+        <Route path="/restaurants" element={<RestaurantAndBars />} />
+        <Route path="/restaurant/:id" element={<SingleRestaurant />} />
+
+        {/* Rooms And Suites */}
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/room/:id" element={<SingleRoom />} />
 
         {/* <Route path="/profile" element={<Profile />} />
       <Route path="/booking/:hotelId" element={<Booking />} /> */}
