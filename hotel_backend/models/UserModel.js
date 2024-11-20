@@ -40,8 +40,8 @@ var userSchema = new mongoose.Schema({
     timestamps: true
 });
 
-userSchema.pre("save", async (next) => {
-    if (!this.isModified(password)) {
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
         next();
     }
 
@@ -49,8 +49,8 @@ userSchema.pre("save", async (next) => {
     this.password = await bcrypt.hash(this.password, salt);
 })
 
-userSchema.methods.isPasswordMatch = async (enteredPassword) => {
-    return await bcrypt.compare(enteredPassword, this.password);
+userSchema.methods.isPasswordMatch = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password)
 }
 
 //Export the model

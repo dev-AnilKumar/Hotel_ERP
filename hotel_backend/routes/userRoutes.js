@@ -4,7 +4,10 @@ const router = express.Router();
 
 router.post("/register", registerUser)
 router.post("/login", loginUser)
-router.get("/profile", getUserProfile)
+router.get("/profile/:id", getUserProfile)
 router.get("/refresh")
 router.put("/profile/update")
-router.put("/logout", logoutUser)
+router.get("/logout", logoutUser)
+
+
+module.exports = router;
