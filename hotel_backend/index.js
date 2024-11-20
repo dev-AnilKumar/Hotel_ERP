@@ -5,6 +5,7 @@ const dbConnect = require('./config/dbConnect');
 const userRoute = require('./routes/userRoutes');
 const roomRoute = require('./routes/roomRoutes');
 const productRoute = require('./routes/productRoutes');
+const weddingHallRoute = require('./routes/weddingHallRoutes');
 const cookieParser = require('cookie-parser');
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(cookieParser())
 app.use('/api/v1/user', userRoute)
 app.use('/api/v1/room', roomRoute)
 app.use('/api/v1/product', productRoute)
+app.use('/api/v1/wedding-hall', weddingHallRoute)
 
 
 app.listen(PORT, () => {
