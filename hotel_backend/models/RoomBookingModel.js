@@ -24,6 +24,11 @@ var roomBookingSchema = new mongoose.Schema({
     booking_status: {
         type: String,
         enum: ["Confirmed", "Cancelled"],
+        default:"Confirmed",
+    },
+    transactionId: {
+        type: String,
+        required: true,
     },
     totalPrice:{
         type:Number,
