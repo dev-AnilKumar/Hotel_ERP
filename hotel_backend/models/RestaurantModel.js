@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose'); // Erase if already required
 
-const restaurentSchema = mongoose.Schema({
+const restaurantSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -34,5 +34,5 @@ const restaurentSchema = mongoose.Schema({
 }, {
     timestamps: true
 })
-module.exports = mongoose.model('Restaurent', restaurentSchema)
+module.exports = mongoose.model('Restaurant', restaurantSchema)
 
