@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var weddingHallSchema = new mongoose.Schema({
+var conferenceSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -14,17 +14,21 @@ var weddingHallSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    maxCapacity: {
-        type: Number,
-        required: true,
-    },
     images: [{
         type: String,
         default: [],
-    }]
+    }],
+    priceperhour: {
+        type: Number,
+        required: true,
+    },
+    features: {
+        type: String,
+        required: true
+    },
 }, {
     timestamps: true
 });
 
 //Export the model
-module.exports = mongoose.model('WeddingHall', weddingHallSchema);
+module.exports = mongoose.model('Conference', conferenceSchema);

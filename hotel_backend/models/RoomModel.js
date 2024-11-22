@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var RoomSchema = new mongoose.Schema({
+var roomSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -35,7 +35,7 @@ var RoomSchema = new mongoose.Schema({
 });
 
 //Export the model
-module.exports = mongoose.model('Room', RoomSchema);
+module.exports = mongoose.model('Room', roomSchema);
 
 // const room = await HotelRoom.findOne({
 //     roomNumber,

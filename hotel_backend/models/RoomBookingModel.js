@@ -26,9 +26,12 @@ var roomBookingSchema = new mongoose.Schema({
         enum: ["Confirmed", "Cancelled"],
         default:"Confirmed",
     },
+    paymentMode:{
+        type: String,
+        enum: ["Cash", "Stripe","Razorpay"],
+    },
     transactionId: {
         type: String,
-        required: true,
     },
     totalPrice:{
         type:Number,

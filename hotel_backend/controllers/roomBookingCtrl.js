@@ -1,13 +1,29 @@
 const RoomBookingModel = require("../models/RoomBookingModel");
 const RoomModel = require("../models/RoomModel");
 const UserModel = require("../models/UserModel");
-
+const stripe = require('stripe')(process.env.STRIPE_SERVER_SECRET_KEY);
 
 const createRoomBooking = async (req, res) => {
-    const { _id: userId } = req.user;
-    const { roomId } = req.params;
+    const { room } = req.body;
     try {
-        const room = await RoomBookingModel.create({ ...req.body, guestId: userId, roomId });
+        const roomDetails = await RoomModel.findById(room.roomId);
+        if (!roomDetails) throw new Error("Room Not Found");
+        const session = await stripe.checkout.sessions.create({
+            line_items: [
+                {
+                    // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    price: room.price,
+                    quantity: room.days,
+                    image: room.image,
+                    name: room.name
+                },
+            ],
+            mode: 'payment',
+            // success_url: `${YOUR_DOMAIN}?success=true`,
+            // cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+        });
+        console.log(session)
+        const room = await RoomBookingModel.create({ ...req.body, guestId: userId, roomId: roomDetails._id });
         res.json({ room, success: true });
     } catch (error) {
         res.json({ msg: error.message, success: false });
@@ -17,11 +33,7 @@ const createRoomBooking = async (req, res) => {
 const getRoomBookings = async (req, res) => {
     try {
         const roombookings = await RoomBookingModel.find();
-        if (roombookings.length() !== 0) {
-            res.json({ roombookings, success: true });
-        } else {
-            throw new Error("No Bookings Done");
-        }
+        res.json({ roombookings, success: true });
     } catch (error) {
         res.json({ msg: error.message, success: false });
     }
@@ -34,11 +46,7 @@ const getBookingsofSingleRoom = async (req, res) => {
         if (!room) throw new Error("Room Not Found");
 
         const bookings = await RoomBookingModel.find({ roomId: room._id });
-        if (bookings.length() !== 0) {
-            res.json({ bookings, success: true });
-        } else {
-            throw new Error(`No ${room.name} Bookings Yet`);
-        }
+        res.json({ bookings, success: true });
     } catch (error) {
         res.json({ msg: error.message, success: false });
     }
@@ -48,11 +56,7 @@ const getRoomBookingsofUser = async (req, res) => {
     const { _id } = req.user;
     try {
         const bookings = await RoomBookingModel.find({ guestId: _id });
-        if (bookings.length() !== 0) {
-            res.json({ bookings, success: true });
-        } else {
-            res.json({ msg: "No Bookings Yet", success: true });
-        }
+        res.json({ bookings, success: true });
     } catch (error) {
         res.json({ msg: error.message, success: false });
     }
