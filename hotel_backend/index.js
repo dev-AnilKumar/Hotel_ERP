@@ -8,6 +8,7 @@ const roomBookingRoute = require('./routes/roomBookingRoutes');
 const productRoute = require('./routes/productRoutes');
 const weddingHallRoute = require('./routes/weddingHallRoutes');
 const conferenceRoute = require('./routes/conferenceRoutes');
+const restaurantRoute = require('./routes/restaurantRoutes');
 const cookieParser = require('cookie-parser');
 
 dotenv.config();
@@ -31,6 +32,7 @@ app.use('/api/v1/room-booking', roomBookingRoute)
 app.use('/api/v1/product', productRoute)
 app.use('/api/v1/wedding-hall', weddingHallRoute)
 app.use('/api/v1/conference-room', conferenceRoute)
+app.use('/api/v1/restaurant', restaurantRoute)
 
 
 app.listen(PORT, () => {
